@@ -5,9 +5,10 @@ also accepts the `QBT_SID_<port>` session cookie that qBittorrent 5.2 and newer 
 Without it every call after a successful login is answered with `403`, and BookOrbit
 reports `qBittorrent answered 403 for /api/v2/app/version`.
 
-The fix itself lives in [secunit404/bookorbit](https://github.com/secunit404/bookorbit)
-on branch `BO-1306-qbittorrent-5-2-session-cookie`. This repository only carries the
-one-line patch in `patches/` plus the workflow that builds it.
+`patches/qbt-sid-cookie.patch` is the whole change: one regex in the qBittorrent
+adapter. `patches/qbt-sid-cookie-tests.patch` holds the matching unit tests, kept for
+reference and for a future upstream contribution; the image build applies only the
+adapter patch.
 
 ## Image
 
