@@ -133,6 +133,7 @@ jobs:
           TAG: ${{ steps.release.outputs.tag }}
         run: |
           set -euo pipefail
+          mkdir -p state
           printf '%s built from %s at %s\n' "${IMAGE}:${TAG}" "${UPSTREAM}@${TAG}" "$(date -u +%FT%TZ)" > state/last-built.txt
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
